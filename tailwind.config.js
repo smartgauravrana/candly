@@ -6,9 +6,6 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   important: "#__next",
-  corePlugins: {
-    preflight: false,
-  },
   theme: {
     extend: {},
   },
