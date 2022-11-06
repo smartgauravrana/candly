@@ -4,7 +4,7 @@ const useUserStore = create((set) => ({
   loading: false,
   name: "",
   email: "",
-  setUserData: (data = {}) => set((state) => ({ ...state, ...data })),
+  setUserData: (data = {}) => set((state: any) => ({ ...state, ...data })),
 }));
 
 export default useUserStore;

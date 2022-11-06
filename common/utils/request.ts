@@ -37,7 +37,7 @@ export async function apiCall({
   return res.data;
 }
 
-function appendAccessToken(headers = {}) {
+function appendAccessToken(headers: any = {}) {
   const accessToken = getCookie("jwt");
 
   if (accessToken) {
