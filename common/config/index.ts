@@ -10,9 +10,11 @@ const config = {
     BASE_URL: "http://localhost:3001/api",
   },
   production: {
-    BASE_URL: "http://172-104-207-75.ip.linodeusercontent.com:3000/api",
+    BASE_URL: "https://chartbell.com/api",
   },
   test: {},
 };
 
-export default Object.assign(config.common, config[env]) as AppConfig;
+const CONFIG = Object.assign(config.common, config[env]) as AppConfig;
+
+export default CONFIG;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
+import CONFIG from "../../../../config";
 
 type Props = {};
 
@@ -18,7 +19,7 @@ export default function Header({}: Props) {
           <p className="text-orange-400 font-bold text-3xl">Chart Bell</p>
         </div>
 
-        <button>Login</button>
+        <Link href={`/api/auth/google`}>Login</Link>
       </div>
     </header>
   );
