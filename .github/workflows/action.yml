@@ -30,6 +30,7 @@ jobs:
         run: |
           rsync -avz * root@${{ secrets.SSH_HOST }}:./web
           rsync -avz .env root@${{ secrets.SSH_HOST }}:./web
+          rsync -avz .next root@${{ secrets.SSH_HOST }}:./web
       - name: Executing cmd on remote
         run: |
           echo 'Installing node_modules'
