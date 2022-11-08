@@ -2,19 +2,17 @@ import Link from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import CONFIG from "../../../../config";
-import { useSession } from "../../../../hooks/useSession";
 import Popover from "@mui/material/Popover";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { useUserStore } from "../../../../zustand";
 
 type Props = {};
 
 export default function Header({}: Props) {
-  const { loading, data: user } = useSession();
-  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
-    null
-  );
+  const { loading, data: user } = useUserStore();
+  const [anchorEl, setAnchorEl] = React.useState<SVGSVGElement | null>(null);
 
-  const handlePopover = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handlePopover = (event: React.MouseEvent<SVGSVGElement>) => {
     setAnchorEl(event.currentTarget);
   };
 

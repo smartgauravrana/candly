@@ -14,7 +14,8 @@ import { useEffect } from "react";
 import { getCurrentUser } from "../common/api/profile";
 import { useUserStore } from "../common/zustand";
 
-const rootElement = document.getElementById("__next");
+const rootElement =
+  typeof window !== "undefined" ? document.getElementById("__next") : null;
 
 const theme = createTheme({
   components: {
@@ -35,11 +36,8 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
-  const { setUserData, data } = useUserStore(({ setUserData, data }) => ({
-    setUserData,
-    data,
-  }));
-  console.log("state: ", data);
+  const { setUserData } = useUserStore();
+
   useEffect(() => {
     (async () => {
       let state = {
@@ -49,7 +47,6 @@ export default function App({
       try {
         const res = await getCurrentUser();
         state.data = res;
-        console.log("response: ", res);
       } catch (err) {
         console.log("get profile err: ", err);
       } finally {
